@@ -3,6 +3,7 @@ from dash import dcc, html
 from dash.dependencies import Input, Output
 import plotly.express as px
 import requests
+import os
 
 # Initialize the Dash app
 app = dash.Dash(__name__)
@@ -67,5 +68,6 @@ def update_weather(city, unit):
     # Return the figure and description
     return fig, f"Weather Description: {description.capitalize()}"
 
-#if __name__ == '__main__':
-#    app.run(debug=True, host='0.0.0.0', port=80)
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 80))  
+    app.run_server(debug=True, host='0.0.0.0', port=port)

@@ -1,5 +1,0 @@
-python -m pip install dash
-pip install numpy
-pip install pandas
-
-pip show dash
